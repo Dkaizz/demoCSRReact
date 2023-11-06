@@ -33,6 +33,7 @@ function App() {
             const Page = item.page;
             return (
               <Route
+                key={item.path}
                 path={item.path}
                 element={
                   <Layout>

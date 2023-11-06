@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { apiBase } from "../api";
 
 export default function Post(props) {
   const { postId } = useParams();
@@ -7,7 +8,7 @@ export default function Post(props) {
 
   useEffect(() => {
     // effect
-    fetch("https://jsonplaceholder.typicode.com/posts/" + postId)
+    fetch(apiBase + "posts/" + postId)
       .then((response) => response.json())
       .then((data) => setPost(data))
       .catch((error) => {

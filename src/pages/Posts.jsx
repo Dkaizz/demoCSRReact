@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiBase } from "../api";
 
 export default function Posts() {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
     // effect
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch(apiBase + "posts")
       .then((response) => response.json())
       .then((data) => setAllPosts([...data]))
       .catch((error) => console.error("Lỗi khi gọi API:", error));
